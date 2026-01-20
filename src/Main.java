@@ -74,7 +74,8 @@ public class Main {
             p.showInfo(); // POLYMORPHISM
 
             if (p instanceof VIPCustomer) {
-                System.out.println(" -> This person is VIP");
+                VIPCustomer vip = (VIPCustomer) p; // CASTING
+                System.out.println(" -> VIP discount: " + vip.getDiscount() + "%");
             }
         }
     }
@@ -99,7 +100,7 @@ public class Main {
 
     private static void viewProducts() {
         for (Product p : products) {
-            System.out.println(p); // yaoi top
+            System.out.println(p);
         }
     }
 }

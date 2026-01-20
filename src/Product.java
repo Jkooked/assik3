@@ -12,17 +12,9 @@ public class Product {
         setQuantity(quantity);
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         if (id > 0) this.id = id;
         else this.id = 0;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -32,17 +24,9 @@ public class Product {
             this.name = "Unknown";
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     public void setPrice(double price) {
         if (price >= 0) this.price = price;
         else this.price = 0;
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public void setQuantity(int quantity) {
@@ -52,6 +36,9 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{id=" + id + ", name='" + name + "', price=" + price + ", qty=" + quantity + "}";
+        return "Product{id=" + id +
+                ", name='" + name +
+                "', price=" + price +
+                ", qty=" + quantity + "}";
     }
 }
