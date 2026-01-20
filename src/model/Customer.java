@@ -1,3 +1,5 @@
+package model;
+
 public class Customer extends Person {
 
     private double totalPurchases;
@@ -7,16 +9,12 @@ public class Customer extends Person {
         setTotalPurchases(totalPurchases);
     }
 
-    public double getTotalPurchases() {
-        return totalPurchases;
-    }
+    public double getTotalPurchases() { return totalPurchases; }
 
     public void setTotalPurchases(double totalPurchases) {
-        if (totalPurchases >= 0) {
-            this.totalPurchases = totalPurchases;
-        } else {
-            this.totalPurchases = 0;
-        }
+        if (totalPurchases < 0)
+            throw new IllegalArgumentException("Total purchases cannot be negative");
+        this.totalPurchases = totalPurchases;
     }
 
     @Override
