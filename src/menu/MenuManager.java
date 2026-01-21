@@ -47,7 +47,7 @@ public class MenuManager implements Menu {
                     default -> System.out.println("Invalid choice");
                 }
 
-            } catch (NumberFormatException e) { // required :contentReference[oaicite:6]{index=6}
+            } catch (NumberFormatException e) {
                 System.out.println("Input error: please enter a number.");
             }
         }
