@@ -47,7 +47,7 @@ public class MenuManager implements Menu {
                     default -> System.out.println("Invalid choice");
                 }
 
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e) { // required :contentReference[oaicite:6]{index=6}
                 System.out.println("Input error: please enter a number.");
             }
         }
@@ -102,8 +102,9 @@ public class MenuManager implements Menu {
         }
 
         for (Person p : people) {
-            p.showInfo();
+            p.showInfo(); // polymorphism
 
+            // instanceof + casting demo (может спросить преподаватель)
             if (p instanceof VIPCustomer) {
                 VIPCustomer vip = (VIPCustomer) p;
                 System.out.println(" -> VIP discount: " + vip.getDiscount() + "%");
