@@ -8,7 +8,6 @@ import java.util.List;
 
 public class ProductDAO {
 
-    // CREATE
     public boolean insertProduct(Product p) {
         String sql = "INSERT INTO products (name, price) VALUES (?, ?)";
         Connection conn = DatabaseConnection.getConnection();
@@ -26,7 +25,6 @@ public class ProductDAO {
         }
     }
 
-    // READ
     public List<Product> getAllProducts() {
         List<Product> res = new ArrayList<>();
         String sql = "SELECT * FROM products ORDER BY id";
@@ -66,7 +64,6 @@ public class ProductDAO {
         return null;
     }
 
-    // UPDATE
     public boolean updateProduct(Product p) {
         String sql = "UPDATE products SET name=?, price=? WHERE id=?";
         Connection conn = DatabaseConnection.getConnection();
@@ -85,7 +82,6 @@ public class ProductDAO {
         }
     }
 
-    // DELETE
     public boolean deleteProduct(int id) {
         String sql = "DELETE FROM products WHERE id=?";
         Connection conn = DatabaseConnection.getConnection();
@@ -102,7 +98,6 @@ public class ProductDAO {
         }
     }
 
-    // SEARCH: by name
     public List<Product> searchByName(String namePart) {
         List<Product> res = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE name ILIKE ? ORDER BY id";
@@ -124,7 +119,6 @@ public class ProductDAO {
         return res;
     }
 
-    // SEARCH: price range
     public List<Product> searchByPriceRange(double min, double max) {
         List<Product> res = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE price BETWEEN ? AND ? ORDER BY price DESC";
@@ -147,7 +141,6 @@ public class ProductDAO {
         return res;
     }
 
-    // SEARCH: min price
     public List<Product> searchByMinPrice(double minPrice) {
         List<Product> res = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE price >= ? ORDER BY price DESC";

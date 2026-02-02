@@ -26,7 +26,6 @@ public class Main {
                 case 4 -> addProduct();
                 case 5 -> viewProducts();
 
-                // Week 8 NEW
                 case 6 -> updatePerson();
                 case 7 -> deletePersonSafe();
                 case 8 -> searchPeopleByName();
