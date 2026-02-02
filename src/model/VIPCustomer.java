@@ -1,5 +1,7 @@
 package model;
 
+import exception.InvalidDiscountException;
+
 public class VIPCustomer extends Person {
     private double discount;
 
