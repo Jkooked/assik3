@@ -1,4 +1,4 @@
-package exception;
+package model;
 
 public class InvalidDiscountException extends Exception {
     public InvalidDiscountException(String message) {
