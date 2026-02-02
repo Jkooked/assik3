@@ -1,28 +1,22 @@
 package model;
 
 public abstract class Person {
-
     protected int id;
     protected String name;
 
     public Person(int id, String name) {
-        setId(id);
-        setName(name);
+        this.id = id;
+        this.name = name;
     }
 
     public int getId() { return id; }
     public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setId(int id) {
-        if (id <= 0) throw new IllegalArgumentException("ID must be positive");
-        this.id = id;
+    public abstract String getType();
+
+    @Override
+    public String toString() {
+        return "[" + getType() + "] id=" + id + ", name='" + name + "'";
     }
-
-    public void setName(String name) {
-        if (name == null || name.trim().isEmpty())
-            throw new IllegalArgumentException("Name cannot be empty");
-        this.name = name.trim();
-    }
-
-    public abstract void showInfo();
 }
