@@ -1,5 +1,6 @@
 import database.PersonDAO;
 import database.ProductDAO;
+import exception.InvalidDiscountException;
 import model.*;
 
 import java.util.List;

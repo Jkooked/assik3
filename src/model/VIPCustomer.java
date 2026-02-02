@@ -2,7 +2,7 @@ package model;
 
 import exception.InvalidDiscountException;
 
-public class VIPCustomer extends Person {
+public class VIPCustomer extends Person implements Discountable {
     private double discount;
 
     public VIPCustomer(int id, String name, double discount) throws InvalidDiscountException {
@@ -13,6 +13,7 @@ public class VIPCustomer extends Person {
     @Override
     public String getType() { return "VIP"; }
 
+    @Override
     public double getDiscount() { return discount; }
 
     public void setDiscount(double discount) throws InvalidDiscountException {

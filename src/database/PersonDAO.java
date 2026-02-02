@@ -1,7 +1,7 @@
 package database;
 
 import model.Customer;
-import model.InvalidDiscountException;
+import exception.InvalidDiscountException;
 import model.Person;
 import model.VIPCustomer;
 

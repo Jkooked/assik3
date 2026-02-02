@@ -61,17 +61,13 @@ public class MenuManager implements Menu {
             System.out.print("Name: ");
             String name = scanner.nextLine();
 
-            System.out.print("Total purchases: ");
-            double total = Double.parseDouble(scanner.nextLine());
-
-            people.add(new Customer(id, name, total));
+            people.add(new Customer(id, name));
             System.out.println("Customer added!");
         } catch (NumberFormatException e) {
             System.out.println("Input error: numbers only.");
-        } catch (IllegalArgumentException e) { // required :contentReference[oaicite:7]{index=7}
-            System.out.println("Validation error: " + e.getMessage());
         }
     }
+
 
     private void addVIPCustomer() {
         try {
@@ -102,7 +98,7 @@ public class MenuManager implements Menu {
         }
 
         for (Person p : people) {
-            p.showInfo(); // polymorphism
+            System.out.println(p);
 
             // instanceof + casting demo (может спросить преподаватель)
             if (p instanceof VIPCustomer) {
@@ -123,17 +119,13 @@ public class MenuManager implements Menu {
             System.out.print("Price: ");
             double price = Double.parseDouble(scanner.nextLine());
 
-            System.out.print("Quantity: ");
-            int qty = Integer.parseInt(scanner.nextLine());
-
-            products.add(new Product(id, name, price, qty));
+            products.add(new Product(id, name, price));
             System.out.println("Product added!");
         } catch (NumberFormatException e) {
             System.out.println("Input error: numbers only.");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Validation error: " + e.getMessage());
         }
     }
+
 
     private void viewProducts() {
         if (products.isEmpty()) {
