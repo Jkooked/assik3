@@ -1,4 +1,3 @@
-
 package menu;
 
 import exception.InvalidDiscountException;
@@ -15,7 +14,7 @@ public class MenuManager implements Menu {
 
     @Override
     public void displayMenu() {
-        System.out.println("\n=== MENU ===");
+        System.out.println("\n=== MENU (LOCAL / WEEK 7) ===");
         System.out.println("1. Add Customer");
         System.out.println("2. Add VIP Customer");
         System.out.println("3. View All People (Polymorphism)");
@@ -48,12 +47,13 @@ public class MenuManager implements Menu {
                     default -> System.out.println("Invalid choice");
                 }
 
-            } catch (NumberFormatException e) { // required :contentReference[oaicite:6]{index=6}
+            } catch (NumberFormatException e) {
                 System.out.println("Input error: please enter a number.");
             }
         }
     }
 
+    // ---------- PEOPLE ----------
     private void addCustomer() {
         try {
             System.out.print("ID: ");
@@ -62,15 +62,11 @@ public class MenuManager implements Menu {
             System.out.print("Name: ");
             String name = scanner.nextLine();
 
-            System.out.print("Total purchases: ");
-            double total = Double.parseDouble(scanner.nextLine());
-
-            people.add(new Customer(id, name, total));
+            people.add(new Customer(id, name));
             System.out.println("Customer added!");
+
         } catch (NumberFormatException e) {
             System.out.println("Input error: numbers only.");
-        } catch (IllegalArgumentException e) { // required :contentReference[oaicite:7]{index=7}
-            System.out.println("Validation error: " + e.getMessage());
         }
     }
 
@@ -82,17 +78,16 @@ public class MenuManager implements Menu {
             System.out.print("Name: ");
             String name = scanner.nextLine();
 
-            System.out.print("Discount (0-100): ");
+            System.out.print("Discount (0–100): ");
             double discount = Double.parseDouble(scanner.nextLine());
 
             people.add(new VIPCustomer(id, name, discount));
             System.out.println("VIP Customer added!");
+
         } catch (NumberFormatException e) {
             System.out.println("Input error: numbers only.");
-        } catch (InvalidDiscountException e) { // custom exception :contentReference[oaicite:8]{index=8}
+        } catch (InvalidDiscountException e) {
             System.out.println("Discount error: " + e.getMessage());
-        } catch (IllegalArgumentException e) {
-            System.out.println("Validation error: " + e.getMessage());
         }
     }
 
@@ -103,16 +98,16 @@ public class MenuManager implements Menu {
         }
 
         for (Person p : people) {
-            p.showInfo(); // polymorphism
+            System.out.println(p);
 
-            // instanceof + casting demo (может спросить преподаватель)
-            if (p instanceof VIPCustomer) {
-                VIPCustomer vip = (VIPCustomer) p;
+            // instanceof + casting demo (OOP)
+            if (p instanceof VIPCustomer vip) {
                 System.out.println(" -> VIP discount: " + vip.getDiscount() + "%");
             }
         }
     }
 
+    // ---------- PRODUCTS ----------
     private void addProduct() {
         try {
             System.out.print("Product ID: ");
@@ -124,15 +119,11 @@ public class MenuManager implements Menu {
             System.out.print("Price: ");
             double price = Double.parseDouble(scanner.nextLine());
 
-            System.out.print("Quantity: ");
-            int qty = Integer.parseInt(scanner.nextLine());
-
-            products.add(new Product(id, name, price, qty));
+            products.add(new Product(id, name, price));
             System.out.println("Product added!");
+
         } catch (NumberFormatException e) {
             System.out.println("Input error: numbers only.");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Validation error: " + e.getMessage());
         }
     }
 
@@ -141,6 +132,7 @@ public class MenuManager implements Menu {
             System.out.println("No products yet.");
             return;
         }
+
         for (Product p : products) {
             System.out.println(p);
         }
