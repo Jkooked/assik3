@@ -11,21 +11,10 @@ import java.util.List;
 
 public class PersonDAO {
 
-    // CREATE
     public boolean insertCustomer(Customer c) {
         String sql = "INSERT INTO people (person_type, name, discount) VALUES ('CUSTOMER', ?, 0)";
         Connection conn = DatabaseConnection.getConnection();
-        if (conn == null) return false;
 
-        try (PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setString(1, c.getName());
-            return st.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            DatabaseConnection.close(conn);
-        }
     }
 
     public boolean insertVIP(VIPCustomer v) {
